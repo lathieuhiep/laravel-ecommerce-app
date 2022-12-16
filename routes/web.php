@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Livewire\Admin\ProductCreator;
 use App\Http\Livewire\Admin\ProductList;
 use Illuminate\Support\Facades\Route;
 
@@ -26,8 +27,9 @@ Route::group([
         return view('dashboard');
     })->name('dashboard');
 
-    // product list
+    // product
     Route::get('/products', ProductList::class)->name('products.index');
+    Route::get('/products/create', ProductCreator::class)->name('products.create');
 });
 
 Route::get('/', function () {
