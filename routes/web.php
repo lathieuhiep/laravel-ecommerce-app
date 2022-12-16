@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Livewire\Admin\ProductList;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +16,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 /* Backend */
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'isAdmin']], function () {
-    Route::view('/dashboard', 'dashboard')->name('admin');
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.',
+    'middleware' => ['auth', 'isAdmin']
+], function () {
+    // dashboard
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    // product list
+    Route::get('/products', ProductList::class)->name('products.index');
 });
 
 Route::get('/', function () {
