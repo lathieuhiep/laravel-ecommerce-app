@@ -2,12 +2,19 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Product;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 
 class ProductInformationForm extends Component
 {
-    protected function rules()
+    public Product $product;
+
+    protected function rules(): array
     {
         return [
             'product.name' => 'required|string',
@@ -21,7 +28,14 @@ class ProductInformationForm extends Component
     {
         $this->validate();
         $this->product->save();
-        return redirect()->route('admin.products.index');
+
+        if ( $this->product->wasRecentlyCreated ) {
+            return redirect()->route('admin.products.edit', $this->product);
+        }
+
+        $this->emitSelf('saved');
+
+        return true;
     }
 
     public function render()

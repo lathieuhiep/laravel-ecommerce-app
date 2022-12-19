@@ -2,6 +2,8 @@
     <div class="md:flex md:items-center md:justify-between">
         <div class="flex-1 min-w-0">
             <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">Products</h2>
+
+            <a href="{{ route('admin.products.create') }}">Add New</a>
         </div>
     </div>
 
@@ -21,7 +23,7 @@
                             @foreach($products as $product)
                                 <tr class="odd:bg-white even:bg-gray-100">
                                     <td class="px-4 sm:px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                        <a href="#" class="hover:text-indigo-500">
+                                        <a href="{{ route('admin.products.edit', $product) }}" class="hover:text-indigo-500">
                                             {{ $product->name }}
                                         </a>
                                     </td>

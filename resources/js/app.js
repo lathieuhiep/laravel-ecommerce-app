@@ -1,4 +1,5 @@
 import './bootstrap';
+import './tiptap';
 
 import Alpine from 'alpinejs';
 
