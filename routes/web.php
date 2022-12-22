@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\Admin\ProductCreator;
 use App\Http\Livewire\Admin\ProductEdit;
 use App\Http\Livewire\Admin\ProductList;
+use App\Http\Livewire\Admin\ProductOptionManager;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,8 @@ Route::group([
     Route::get('/products', ProductList::class)->name('products.index');
     Route::get('/products/create', ProductCreator::class)->name('products.create');
     Route::get('/products/edit/{product}', ProductEdit::class)->name('products.edit');
+    Route::get('/products/options/{product}', ProductOptionManager::class)->name('products.options');
+
 });
 
 Route::get('/', function () {

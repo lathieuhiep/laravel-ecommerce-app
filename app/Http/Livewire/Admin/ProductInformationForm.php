@@ -3,10 +3,6 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Product;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 

@@ -16,6 +16,7 @@
                             <thead class="bg-gray-50">
                             <tr>
                                 <th scope="col" class="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                                <th scope="col" class="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Create Options</th>
                                 <th scope="col" class="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
                             </tr>
                             </thead>
@@ -27,6 +28,13 @@
                                             {{ $product->name }}
                                         </a>
                                     </td>
+
+                                    <td class="px-4 sm:px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                        <a href="{{ route('admin.products.options', $product) }}" class="hover:text-indigo-500">
+                                            Create Options
+                                        </a>
+                                    </td>
+
                                     <td class="px-4 sm:px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 tabular-nums">
                                         {{ $product->price }}
                                     </td>
